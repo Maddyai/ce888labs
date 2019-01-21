@@ -6,7 +6,20 @@ import numpy as np
 
 
 def boostrap(sample, sample_size, iterations):
-	# <---INSERT YOUR CODE HERE--->
+	per = 95
+	data_mean = []
+	for _ in range(iterations):
+		idxs = np.random.randint(sample_size, size=sample_size)
+		data = [sample[idx] for idx in idxs]
+		mean = sum(data)/len(data)
+		data_mean.append(mean)
+	total = iterations
+	remove_per = int(((100 - per)/100 * total)/2)
+	data_mean = data_mean[remove_per:-remove_per]
+
+	lower = min(data_mean)
+	upper = max(data_mean)
+	data_mean = sum(data_mean)/len(data_mean)
 	return data_mean, lower, upper
 
 
