@@ -18,15 +18,15 @@ def mad(arr):
 
 
 if __name__ == "__main__":
-	df = pd.read_csv('./customers.csv')
+	df = pd.read_csv('./data/customers.csv')
 	print((df.columns))
 	sns_plot = sns.lmplot(df.columns[0], df.columns[1], data=df, fit_reg=False)
 
 	sns_plot.axes[0,0].set_ylim(0,)
 	sns_plot.axes[0,0].set_xlim(0,)
 
-	sns_plot.savefig("scaterplot.png",bbox_inches='tight')
-	sns_plot.savefig("scaterplot.pdf",bbox_inches='tight')
+	sns_plot.savefig("./png/scaterplot.png",bbox_inches='tight')
+	sns_plot.savefig("./pdf/scaterplot.pdf",bbox_inches='tight')
 
 	data = df.values.T[1]
 	
@@ -43,8 +43,6 @@ if __name__ == "__main__":
 	axes.set_xlabel('Millons of pounds in sales') 
 	axes.set_ylabel('Sales count')
 
-	sns_plot2.savefig("histogram.png",bbox_inches='tight')
-	sns_plot2.savefig("histogram.pdf",bbox_inches='tight')
-
-
+	sns_plot2.savefig("./png/histogram.png",bbox_inches='tight')
+	sns_plot2.savefig("./pdf/histogram.pdf",bbox_inches='tight')
 	
